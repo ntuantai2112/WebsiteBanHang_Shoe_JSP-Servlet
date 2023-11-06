@@ -1,4 +1,4 @@
-<%--<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
+<%--<%@taglib uri="" prefix="c"%>--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-<form action="/Lab3_Java04/login" method="post">
+<form action="login" method="post">
     <section class="vh-100" style="background-color: #508bfc;">
         <div class="container py-5 h-100">
             <div
@@ -38,16 +38,19 @@
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="typeEmailX-2" name="username"
-                                       value="" class="form-control form-control-lg"
-                                       placeholder="Username" /> <label class="form-label"
-                                                                        for="typeEmailX-2"></label>
+                                       value="${sessionScope.acc.username}" class="form-control form-control-lg"
+                                       placeholder="Username" />
+<%--                                <label class="text-danger">${messUserName}</label>--%>
+
+
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="password" id="typePasswordX-2" name="password"
-                                       value="" value=""
+                                       value="${sessionScope.acc.password}"
                                        class="form-control form-control-lg" placeholder="Password" />
-                                <label class="form-label" for="typePasswordX-2"></label>
+<%--                                <label class="text-danger">${messPass}</label>--%>
+
                             </div>
 
                             <!-- Checkbox -->
@@ -65,13 +68,12 @@
                             <hr class="my-4">
 
                             <button class="btn btn-lg btn-block btn-primary"
-                                    style="background-color: #dd4b39;" type="submit">
-
-                                <i class="bi bi-google"></i> Sign in with google
+                                    style="background-color: #dd4b39" type="submit">
+                                <img src="/assets/img/social%20(1).png" alt=""> Sign in with google
                             </button>
                             <button class="btn btn-lg btn-block btn-primary mb-2"
                                     style="background-color: #3b5998;" type="submit">
-                                <i class="bi bi-facebook"></i>Sign in with facebook
+                                <img src="/assets/img/facebook.png" alt=""> Sign in with facebook
                             </button>
 
                         </div>

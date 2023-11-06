@@ -16,7 +16,7 @@
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        123 Consectetur at ligula 10660
+                        A12-An Khánh,Hoài Đức, Hà Nội
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
@@ -24,7 +24,7 @@
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <a class="text-decoration-none" href="mailto:info@company.com">tuantain2003@gmail.com</a>
                     </li>
                 </ul>
             </div>

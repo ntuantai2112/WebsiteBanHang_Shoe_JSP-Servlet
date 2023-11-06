@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: LENOVO T560
-  Date: 02/11/2023
-  Time: 10:25 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Start Top Nav -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -50,14 +44,29 @@
                         <a class="nav-link" href="/views/about.jsp">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/views/shop.jsp">Shop</a
+                        <a class="nav-link" href="/views/shop.jsp">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/views/contact.jsp">Contact</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="">Logout</a>
+                        <a class="nav-link" href="/views/ManagerProduct.jsp">Manager Product</a>
                     </li>
+
+<%--                    <c:if test="${sessionScope.acc != null} ">--%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+<%--                    </c:if>--%>
+
+<%--                <c:if test="${sessionScope.acc == null} ">--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link" href="/views/Login.jsp">Login</a>--%>
+<%--                    </li>--%>
+<%--                </c:if>--%>
+
+
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">
@@ -72,13 +81,11 @@
                 <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="/views/GioHang.jsp">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <%--                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>--%>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="/views/Login.jsp">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    <%--                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>--%>
                 </a>
             </div>
         </div>
