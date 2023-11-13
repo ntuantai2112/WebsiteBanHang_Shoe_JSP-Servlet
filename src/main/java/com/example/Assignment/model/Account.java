@@ -1,27 +1,22 @@
 package com.example.Assignment.model;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
 
     private Integer id;
-    private String username;
+    private String userName;
     private String password;
     private Integer isSell;
     private Integer isAdmin;
-
-    public Account() {
-    }
-
-
-
-    public Account(Integer id, String username, String password, Integer isSell, Integer isAdmin) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.isSell = isSell;
-        this.isAdmin = isAdmin;
-    }
-
-
 
     public Integer getId() {
         return id;
@@ -31,12 +26,12 @@ public class Account {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

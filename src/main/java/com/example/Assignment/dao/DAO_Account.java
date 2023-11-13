@@ -42,7 +42,9 @@ public class DAO_Account {
     }
 
     public static void main(String[] args) {
-        DBConnection.openDbConnection();
+
+        DAO_Account dao = new DAO_Account();
+        System.out.println(dao.getAccount("adam","123456"));
     }
 
 

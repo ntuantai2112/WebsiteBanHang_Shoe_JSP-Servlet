@@ -71,7 +71,7 @@
             <form action="">
                 <div class="col-auto">
                     <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Nhập voucher">
+                        <input type="text" class="form-control bg-white border-light" id="subscribeEmail" placeholder="Nhập voucher">
                         <div class="input-group-text btn-success text-light">Sử dụng</div>
                     </div>
                 </div>

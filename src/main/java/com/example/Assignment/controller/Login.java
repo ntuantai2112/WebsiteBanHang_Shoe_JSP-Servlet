@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
         if (account == null) {
             request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
         } else {
-            if (account.getUsername().equals(userName) && account.getPassword().equals(password)) {
+            if (account.getUserName().equals(userName) && account.getPassword().equals(password)) {
                 if(remember != null) {
                     HttpSession session = request.getSession();
                     session.setAttribute("acc", account);

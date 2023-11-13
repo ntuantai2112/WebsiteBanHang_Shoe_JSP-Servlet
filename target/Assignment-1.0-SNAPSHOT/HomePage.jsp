@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,9 +41,10 @@
         <div class="w-100 pt-1 mb-5 text-right">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+        <%-- Tìm kiếm sản phẩm        --%>
+        <form action="search" method="post" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                <input type="text" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>
@@ -70,7 +71,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 class="h1 text-success"><b>Zay</b> eCommerce</h1>
+                            <h1 class="h1 text-success"><b>Zay</b> Shoes</h1>
                             <h3 class="h2">Giày Adidas</h3>
                             <p>
                                 Adidas là một công ty đa quốc gia đến từ Đức, chuyên sản xuất giày dép, quần áo và phụ kiện. Tiền thân của công ty là Gebruder Dassler Schuhfabrik, được thành lập vào năm 1924 bởi anh em nhà Dassler là Adi Dassler và Rudolf.
@@ -130,6 +131,7 @@
 
 <!-- Start Categories of The Month -->
 <section class="container py-5">
+<%--    Các sản phẩm--%>
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
             <h1 class="h1">Categories of The Month</h1>
@@ -139,21 +141,23 @@
             </p>
         </div>
     </div>
+
+
     <div class="row">
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="#"><img src="assets/img/Giay_Bitis02.jpg" class="rounded-circle img-fluid border"></a>
             <h5 class="text-center mt-3 mb-3">Bitis</h5>
-            <p class="text-center"><a class="btn btn-success" href="views/shop.jsp">Go Shop</a></p>
+            <p class="text-center"><a class="btn btn-success" href="/shop">Go Shop</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
             <h2 class="h5 text-center mt-3 mb-3">Nike</h2>
-            <p class="text-center"><a class="btn btn-success" href="views/shop.jsp">Go Shop</a></p>
+            <p class="text-center"><a class="btn btn-success" href="/shop">Go Shop</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="#"><img src="./assets/img/giay_conver01.jpg" class="rounded-circle img-fluid border"></a>
             <h2 class="h5 text-center mt-3 mb-3">Converse</h2>
-            <p class="text-center"><a class="btn btn-success" href="views/shop.jsp">Go Shop</a></p>
+            <p class="text-center"><a class="btn btn-success" href="/shop">Go Shop</a></p>
         </div>
     </div>
 </section>

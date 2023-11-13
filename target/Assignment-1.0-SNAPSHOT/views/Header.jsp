@@ -38,13 +38,13 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/HomePage.jsp">Home</a>
+                        <a class="nav-link" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/views/about.jsp">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/views/shop.jsp">Shop</a>
+                        <a class="nav-link" href="/shop">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/views/contact.jsp">Contact</a>
