@@ -1,4 +1,4 @@
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Start Top Nav -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -50,21 +50,24 @@
                         <a class="nav-link" href="/views/contact.jsp">Contact</a>
                     </li>
 
+
                     <li class="nav-item">
                         <a class="nav-link" href="/views/ManagerProduct.jsp">Manager Product</a>
                     </li>
 
-<%--                    <c:if test="${sessionScope.acc != null} ">--%>
+
+
+                    <c:if test="${sessionScope.acc != null} ">
                         <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout</a>
                         </li>
-<%--                    </c:if>--%>
+                    </c:if>
 
-<%--                <c:if test="${sessionScope.acc == null} ">--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/views/Login.jsp">Login</a>--%>
-<%--                    </li>--%>
-<%--                </c:if>--%>
+                <c:if test="${sessionScope.acc == null} ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </c:if>
 
 
                 </ul>
@@ -84,7 +87,7 @@
                 <a class="nav-icon position-relative text-decoration-none" href="/views/GioHang.jsp">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="/views/Login.jsp">
+                <a class="nav-icon position-relative text-decoration-none" href="/login">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                 </a>
             </div>

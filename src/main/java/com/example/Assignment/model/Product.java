@@ -19,6 +19,7 @@ public class Product {
     private String description;
     private Category category;
     private Sell sell;
+    private Integer amount;
 
 
     public Product(Integer id, String name, String image, Double price, String title, String description) {

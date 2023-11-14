@@ -16,6 +16,14 @@ public class ProductService {
         return daoProduct.getAllProduct();
     }
 
+    public List<Product> getTop3Product(){
+        return  daoProduct.getTop3Product();
+    }
+
+    public List<Product> getNext3Product(Integer amount){
+        return daoProduct.getNext3Product(amount);
+    }
+
     public List<Product> getProductByCategoryID(String id ){
         return daoProduct.getProductByCategoryID(id);
     }
@@ -27,6 +35,10 @@ public class ProductService {
     public List<Product> searchProductByName(String keyword ){
 
         return  daoProduct.searchProductByName(keyword);
+    }
+
+    public int getNumberPage(){
+        return daoProduct.getNumberPage();
     }
 
     public void insert(Product product){

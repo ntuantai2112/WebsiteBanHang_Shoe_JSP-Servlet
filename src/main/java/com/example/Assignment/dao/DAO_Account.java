@@ -41,11 +41,7 @@ public class DAO_Account {
         return null;
     }
 
-    public static void main(String[] args) {
 
-        DAO_Account dao = new DAO_Account();
-        System.out.println(dao.getAccount("adam","123456"));
-    }
 
 
 

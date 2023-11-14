@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "Login", value = "/login")
+@WebServlet(name = "Login", value = {"/login"})
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,29 +23,40 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         String remember = request.getParameter("remember");
 
+        System.out.println(userName);
+
 
         DAO_Account dao_account = new DAO_Account();
         Account account = dao_account.getAccount(userName, password);
 
         if (account == null) {
+            System.out.println(account.getUserName());
             request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
         } else {
-            if (account.getUserName().equals(userName) && account.getPassword().equals(password)) {
-                if(remember != null) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("acc", account);
+//            if (account.getUserName().equals(userName) && account.getPassword().equals(password)) {
+//                if(remember != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", account);
+            System.out.println(account.getUserName());
 
-                }else{
-                    HttpSession session = request.getSession();
-                    session.removeAttribute("acc");
-                }
+            response.sendRedirect("/home");
 
 
-                response.sendRedirect("/home");
-            } else {
-                request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
+//                }
+//                else{
+//                    HttpSession session = request.getSession();
+//                    session.removeAttribute("acc");
+//                    request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
+//
+//                }
 
-            }
+
+//                response.sendRedirect("/home");
+//            }
+//        else {
+//                request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
+//
+//            }
 
         }
     }

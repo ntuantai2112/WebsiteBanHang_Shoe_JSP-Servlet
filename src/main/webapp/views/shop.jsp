@@ -74,11 +74,15 @@
             /*padding: 10px;*/
             transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu nền và màu chữ trong 0.3 giây */
         }
-        .list-group-item:hover{
-            background: blue;
+
+        .category_link:hover{
             color: white;
+        }
+        .list-group-item:hover{
+            background: #0b5ed7;
 
         }
+
 
         .name_product{
             color: black;
@@ -109,7 +113,7 @@
 <body>
 <!-- Header-->
 <jsp:include page="Header.jsp"></jsp:include>
-
+<jsp:useBean id="a" class="com.example.Assignment.dao.DAO_Product" scope="request"></jsp:useBean>
 <!-- Close Header -->
 
 <!-- Modal -->
@@ -120,7 +124,7 @@
         </div>
         <form action="/search" method="post" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
+                <input type="text" value="${valueSearch}" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>
@@ -190,15 +194,17 @@
             </div>
             <div div="row">
                 <ul class="pagination pagination-lg justify-content-end">
+
+
                     <li class="page-item disabled">
                         <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                    </li>
+<%--                    <li class="page-item">--%>
+<%--                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="page-item">--%>
+<%--                        <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>--%>
+<%--                    </li>--%>
                 </ul>
             </div>
 

@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
+<%--    CDN sử dụng AJAX--%>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 
     <!-- Load fonts style after rendering the layout styles -->
@@ -28,6 +31,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+    <style>
+        .image_link{
+            width: 415px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card_title {
+            display: -webkit-box;
+            /*-webkit-line-clamp: 2 ;*/
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product_name{
+            color: black;
+            font-size: 50px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .product_name:hover{
+            color: #198754;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +74,7 @@
         <%-- Tìm kiếm sản phẩm        --%>
         <form action="search" method="post" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
+                <input type="text" value="${valueSearch}"  class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>
@@ -176,11 +206,12 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100">
-                    <a href="views/shop-single.html">
-                        <img src="./assets/img/Giay_Bitis02.jpg" class="card-img-top" alt="..." >
+        <div id="content" class=" row">
+            <c:forEach items="${listProduct}" var="p">
+            <div class="product col-12 col-md-4 mb-4">
+                <div class="card h-100 card_title">
+                    <a href="/detail?pid=${p.id}" class="">
+                        <img src="${p.image}" class="card-img-top image_link" alt="..." >
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -191,65 +222,33 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$240.00</li>
+                            <li class="text-muted text-right fw-bold text-danger"> ${p.price} $</li>
                         </ul>
-                        <a href="views/shop-single.html" class="h2 text-decoration-none text-dark">Giày Bitis</a>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt posuere.
-                        </p>
-                        <p class="text-muted">Reviews (24)</p>
+                        <a href="/detail?pid=${p.id}" class="product_name  fs-3  ">${p.name}</a>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-7">
+                                <p class="text-muted">Reviews (24)</p>
+                            </div>
+                            <div class="col-5">
+                                <a href="#">
+                                    <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100">
-                    <a href="views/shop-single.html">
-                        <img src="./assets/img/giay_Adidas05.jpg" class="card-img-top" alt="..." >
-                    </a>
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                            </li>
-                            <li class="text-muted text-right">$480.00</li>
-                        </ul>
-                        <a href="views/shop-single.html" class="h2 text-decoration-none text-dark">Giày Adidas</a>
-                        <p class="card-text">
-                            Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
-                        </p>
-                        <p class="text-muted">Reviews (48)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100">
-                    <a href="views/shop-single.html">
-                        <img src="./assets/img/giay_conver01.jpg" class="card-img-top" alt="..." >
-                    </a>
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                            </li>
-                            <li class="text-muted text-right">$360.00</li>
-                        </ul>
-                        <a href="views/shop-single.html" class="h2 text-decoration-none text-dark">Giày Converse đen</a>
-                        <p class="card-text">
-                            Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                        </p>
-                        <p class="text-muted">Reviews (74)</p>
-                    </div>
-                </div>
-            </div>
+
+            </c:forEach>
         </div>
+
+        <%-- Thêm sản phẩm  --%>
+        <div class="">
+                <button type="submit" onclick="loadMore()" class="btn btn-primary " >Load More</button>
+        </div>
+
+
     </div>
 </section>
 <!-- End Featured Product -->
@@ -266,6 +265,36 @@
 <script src="assets/js/templatemo.js"></script>
 <script src="assets/js/custom.js"></script>
 <!-- End Script -->
+    <script>
+
+        function  loadMore(){
+
+            var amount = document.getElementsByClassName("product").length;
+
+
+            $.ajax({
+                url: "/load-more",  // Đường dẫn đến API hoặc file xử lý
+                method: "GET",  // Phương thức HTTP (GET, POST, PUT, DELETE, v.v.)
+                data:{
+                    exits:amount
+                },
+                success: function(data){
+                    var row = document.getElementById("content");
+                    row.innerHTML += data;
+
+                },
+                error: function(xhr, status, error){
+                }
+            });
+
+        }
+
+
+    </script>
+
 </body>
+
+
+
 
 </html>

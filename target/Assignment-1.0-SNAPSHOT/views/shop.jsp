@@ -74,11 +74,15 @@
             /*padding: 10px;*/
             transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu nền và màu chữ trong 0.3 giây */
         }
-        .list-group-item:hover{
-            background: blue;
+
+        .category_link:hover{
             color: white;
+        }
+        .list-group-item:hover{
+            background: #0b5ed7;
 
         }
+
 
         .name_product{
             color: black;
@@ -120,7 +124,7 @@
         </div>
         <form action="/search" method="post" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
+                <input type="text" value="${valueSearch}" class="form-control" id="inputModalSearch" name="keyword" placeholder="Search ...">
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>

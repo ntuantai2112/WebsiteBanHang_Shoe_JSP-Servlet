@@ -32,6 +32,7 @@ public class SearchController extends HttpServlet {
         List<Category> listCategory = categoryService.getAllCategory();
         request.setAttribute("products", listProduct);
         request.setAttribute("categorys", listCategory);
+        request.setAttribute("valueSearch", keyword);
         request.getRequestDispatcher("/views/shop.jsp").forward(request, response);
 
 
