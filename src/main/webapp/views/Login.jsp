@@ -38,7 +38,7 @@
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="typeEmailX-2" name="username"
-                                       value="${sessionScope.acc.username}" class="form-control form-control-lg"
+                                       value="" class="form-control form-control-lg"
                                        placeholder="Username" />
 <%--                                <label class="text-danger">${messUserName}</label>--%>
 
@@ -47,7 +47,7 @@
 
                             <div class="form-outline mb-4">
                                 <input type="password" id="typePasswordX-2" name="password"
-                                       value="${sessionScope.acc.password}"
+                                       value=""
                                        class="form-control form-control-lg" placeholder="Password" />
 <%--                                <label class="text-danger">${messPass}</label>--%>
 
@@ -56,14 +56,20 @@
                             <!-- Checkbox -->
                             <div class="form-check d-flex justify-content-start mb-4">
                                 <input class="form-check-input" type="checkbox"
-                                       value="" name="remember" id="form1Example3"
-                                      />
+                                       value="" name="remember" id="form1Example3"/>
 
                                 <label class="form-check-label" for="form1Example3">
                                     Remember me? </label>
                             </div>
 
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+
+
+                            <div class="mb-2">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                            </div>
+                            <div class="">row
+                                <a href="/singup" class="text-decoration-none btn btn-success"> Sing up new Account </a>
+                            </div>
 
                             <hr class="my-4">
 

@@ -189,6 +189,35 @@ public class DAO_Product {
     }
 
 
+    public List<Product> getPaging(int index ){
+
+        List<Product> listProduct = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM Product\n" +
+                "ORDER BY id\n" +
+                "OFFSET ? ROWS\n" +
+                "FETCH NEXT 6 ROWS ONLY;";
+
+        try{
+            Connection con  = DBConnection.openDbConnection();
+            PreparedStatement ps = con.prepareStatement(sqlQuery);
+            ps.setInt(1,(index - 1) * 6);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                listProduct.add(new Product(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return listProduct;
+    }
+
+
     public void insert(Product product){
 
     }

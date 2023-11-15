@@ -11,7 +11,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShopController", value ={ "/ShopController","/shop","/category","/detail"})
+@WebServlet(name = "ShopController", value = {"/ShopController", "/shop", "/category", "/detail", "/paging"})
 public class ShopController extends HttpServlet {
 
     private ProductService productService = new ProductService();
@@ -22,34 +22,40 @@ public class ShopController extends HttpServlet {
         String uri = request.getRequestURI();
 
 
+        if (uri.contains("/shop")) {
+            Integer index = Integer.parseInt( request.getParameter("index"));
+            if (index == null ) {
+                index = 1;
+            }
 
-      if(uri.contains("/shop")) {
-            List<Product> listProduct = productService.getAllProduct();
+            List<Category> listCategory = categoryService.getAllCategory();
+            request.setAttribute("categorys", listCategory);
+            List<Product> listP = productService.getPaging(index);
+            request.setAttribute("products", listP);
+            request.setAttribute("index", index);
+            request.getRequestDispatcher("/views/shop.jsp").forward(request, response);
+
+
+//            request.getRequestDispatcher("/views/shop.jsp").forward(request, response);
+        } else if (uri.contains("/category")) {
+
+            String categoryID = request.getParameter("cid");
+
+
+            List<Product> listProduct = productService.getProductByCategoryID(categoryID);
             List<Category> listCategory = categoryService.getAllCategory();
             request.setAttribute("products", listProduct);
             request.setAttribute("categorys", listCategory);
+            request.setAttribute("tag", categoryID);
             request.getRequestDispatcher("/views/shop.jsp").forward(request, response);
+        } else if (uri.contains("/detail")) {
+            String productID = request.getParameter("pid");
+            Product productDetail = productService.getProductByID(productID);
+            request.setAttribute("detail", productDetail);
+            request.getRequestDispatcher("/views/ShowDetailProduct.jsp").forward(request, response);
         }
 
-        else if(uri.contains("/category")){
 
-          String categoryID = request.getParameter("cid");
-
-
-          List<Product> listProduct = productService.getProductByCategoryID(categoryID);
-          List<Category> listCategory = categoryService.getAllCategory();
-          request.setAttribute("products", listProduct);
-          request.setAttribute("categorys", listCategory);
-          request.setAttribute("tag", categoryID);
-          request.getRequestDispatcher("/views/shop.jsp").forward(request, response);
-      }
-
-      else if(uri.contains("/detail")){
-          String productID = request.getParameter("pid");
-          Product productDetail = productService.getProductByID(productID);
-          request.setAttribute("detail",productDetail);
-          request.getRequestDispatcher("/views/ShowDetailProduct.jsp").forward(request, response);
-      }
     }
 
     @Override

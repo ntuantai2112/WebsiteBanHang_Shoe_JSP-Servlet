@@ -41,6 +41,10 @@ public class ProductService {
         return daoProduct.getNumberPage();
     }
 
+    public List<Product> getPaging(int index ){
+        return daoProduct.getPaging(index);
+    }
+
     public void insert(Product product){
 
     }

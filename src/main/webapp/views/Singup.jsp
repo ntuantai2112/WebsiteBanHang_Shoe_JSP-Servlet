@@ -28,7 +28,7 @@
                     <div class="card shadow-2-strong" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
 
-                            <h3 class="mb-5">Sign in</h3>
+                            <h3 class="mb-5">Sign up</h3>
 
                             <div class="form-group">
 <%--                                <mark class="bg-white text-black" style="background-color: white;">${loginStatus}</mark>--%>
@@ -53,35 +53,23 @@
 
                             </div>
 
-                            <!-- Checkbox -->
-                            <div class="form-check d-flex justify-content-start mb-4">
-                                <input class="form-check-input" type="checkbox"
-                                       value="" name="remember" id="form1Example3"/>
+                            <div class="form-outline mb-4">
+                                <input type="password" id="typePasswordX-2" name="repeat password"
+                                       value=""
+                                       class="form-control form-control-lg" placeholder="Repeat Password" />
+                                <%--                                <label class="text-danger">${messPass}</label>--%>
 
-                                <label class="form-check-label" for="form1Example3">
-                                    Remember me? </label>
                             </div>
 
 
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Sing up</button>
 
-                            <div class="mb-2">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                            </div>
-                            <div class="">row
-                                <a href="/singup" class="text-decoration-none btn btn-success"> Sing up new Account </a>
-                            </div>
+                          <hr class="my-4">
 
-                            <hr class="my-4">
-
-                            <button class="btn btn-lg btn-block btn-primary"
+                            <a href="/login"> <button class="btn btn-lg btn-block btn-primary"
                                     style="background-color: #dd4b39" type="submit">
-                                <img src="/assets/img/social%20(1).png" alt=""> Sign in with google
-                            </button>
-                            <button class="btn btn-lg btn-block btn-primary mb-2"
-                                    style="background-color: #3b5998;" type="submit">
-                                <img src="/assets/img/facebook.png" alt=""> Sign in with facebook
-                            </button>
-
+                                Back
+                            </button></a>
                         </div>
                     </div>
                 </div>
