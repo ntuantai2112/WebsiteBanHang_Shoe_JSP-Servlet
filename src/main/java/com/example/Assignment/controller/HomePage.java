@@ -21,19 +21,16 @@ public class HomePage extends HttpServlet {
 
         String uri = request.getRequestURI();
 
-        if(uri.contains("/home")){
+        if (uri.contains("/home")) {
             List<Product> listProduct = productService.getTop3Product();
-            request.setAttribute("listProduct",listProduct);
+            request.setAttribute("listProduct", listProduct);
             request.getRequestDispatcher("HomePage.jsp").forward(request, response);
-        }
-        else if(uri.contains("/detail")){
+        } else if (uri.contains("/detail")) {
             String productID = request.getParameter("pid");
             Product productDetail = productService.getProductByID(productID);
-            request.setAttribute("detail",productDetail);
+            request.setAttribute("detail", productDetail);
             request.getRequestDispatcher("/views/ShowDetailProduct.jsp").forward(request, response);
         }
-
-
 
 
     }

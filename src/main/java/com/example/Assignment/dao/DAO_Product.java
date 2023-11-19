@@ -12,17 +12,16 @@ import java.util.List;
 public class DAO_Product {
 
 
-
-    public List<Product> getAllProduct( ){
+    public List<Product> getAllProduct() {
 
         List<Product> listProduct = new ArrayList<>();
         String sqlQuery = "SELECT * FROM product";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -31,22 +30,22 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
-    public List<Product> getTop3Product(){
+    public List<Product> getTop3Product() {
 
         List<Product> listProduct = new ArrayList<>();
         String sqlQuery = "SELECT TOP 3 * FROM product";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -55,14 +54,14 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
 
-    public List<Product> getNext3Product(Integer amount){
+    public List<Product> getNext3Product(Integer amount) {
 
         List<Product> listProduct = new ArrayList<>();
         String sqlQuery = "SELECT * FROM product\n" +
@@ -70,12 +69,12 @@ public class DAO_Product {
                 "OFFSET ? ROWS \n" +
                 "FETCH NEXT 3 ROWS ONLY;  ";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
-            ps.setInt(1,amount);
+            ps.setInt(1, amount);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -84,23 +83,23 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
-    public List<Product> getProductByCategoryID(String id ) {
+    public List<Product> getProductByCategoryID(String id) {
 
         List<Product> listProduct = new ArrayList<>();
         String sqlQuery = "SELECT * FROM product where cateID = ?";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
-            ps.setString(1,id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -109,23 +108,23 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
-    public Product getProductByID(String id ) {
+    public Product getProductByID(String id) {
 
         String sqlQuery = "SELECT * FROM product WHERE id = ?";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
-            ps.setString(1,id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-              return  new Product(
+            while (rs.next()) {
+                return new Product(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -133,24 +132,24 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-
-    public List<Product> searchProductByName(String keyword ) {
+    //    Lấy sản phẩm theo người bán
+    public List<Product> getProductBySellID(int id) {
 
         List<Product> listProduct = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM product WHERE [name] like ? ";
+        String sqlQuery = "SELECT * FROM product WHERE sell_ID = ?";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
-            ps.setString(1, "%" + keyword + "%");
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -159,37 +158,63 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listProduct;
+    }
+
+
+    public List<Product> searchProductByName(String keyword) {
+
+        List<Product> listProduct = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM product WHERE [name] like ? ";
+
+        try {
+            Connection con = DBConnection.openDbConnection();
+            PreparedStatement ps = con.prepareStatement(sqlQuery);
+            ps.setString(1, "%" + keyword + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                listProduct.add(new Product(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
     //Làm chức năng phân trang
-    public int getNumberPage(){
+    public int getNumberPage() {
         String sqlQuery = "select COUNT(*)  from product";
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-              int total = rs.getInt(1);
-              int countPage = 0;
-              countPage = total /6;
-              if( total % 6 != 0){
-                  countPage++;
-              }
+            while (rs.next()) {
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total / 6;
+                if (total % 6 != 0) {
+                    countPage++;
+                }
 
-              return countPage;
+                return countPage;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
 
 
-    public List<Product> getPaging(int index ){
+    public List<Product> getPaging(int index) {
 
         List<Product> listProduct = new ArrayList<>();
         String sqlQuery = "SELECT * FROM Product\n" +
@@ -197,12 +222,12 @@ public class DAO_Product {
                 "OFFSET ? ROWS\n" +
                 "FETCH NEXT 6 ROWS ONLY;";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
-            ps.setInt(1,(index - 1) * 6);
+            ps.setInt(1, (index - 1) * 6);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProduct.add(new Product(
                         rs.getInt(1),
                         rs.getString(2),
@@ -211,26 +236,39 @@ public class DAO_Product {
                         rs.getString(5),
                         rs.getString(6)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listProduct;
     }
 
 
-    public void insert(Product product){
-
-    }
-    public void update(Integer id,Product product){
-
-    }
-    public void delete(Integer id){
-
-    }
-    public void findByName(String keyword){
+    public void insert(Product product) {
 
     }
 
+    public void update(Integer id, Product product) {
+
+    }
+
+    public void delete(Integer id) {
+        String sqlQuery = "DELETE FROM product WHERE id = ?";
+
+        try {
+            Connection con = DBConnection.openDbConnection();
+            PreparedStatement ps = con.prepareStatement(sqlQuery);
+            ps.setInt(1, id);
+            Integer rs = ps.executeUpdate();
+            System.out.println("Xóa thành công:" + rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void findByName(String keyword) {
+
+    }
 
 
 }

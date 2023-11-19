@@ -5,11 +5,12 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="hibernate.connection.url">jdbc:sqlserver://your_server_address:1433;databaseName=your_database</property>
-        <property name="hibernate.connection.username" >sa</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://your_server_address:1433;databaseName=your_database
+        </property>
+        <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
         <!-- Các cấu hình khác -->
-        <mapping class="com.example.Assignment.model.Product" />
+        <mapping class="com.example.Assignment.model.Product"/>
     </session-factory>
 </hibernate-configuration>

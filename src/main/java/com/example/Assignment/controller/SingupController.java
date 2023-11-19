@@ -10,7 +10,7 @@ import java.io.IOException;
 public class SingupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            request.getRequestDispatcher("/views/Singup.jsp").forward(request,response);
+        request.getRequestDispatcher("/views/Singup.jsp").forward(request, response);
     }
 
     @Override

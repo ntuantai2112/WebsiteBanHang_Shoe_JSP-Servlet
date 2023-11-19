@@ -20,17 +20,22 @@
     <link rel="stylesheet" href="../assets/css/custom.css">
 
     <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
 
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
-
-    </header>
+</header>
 <body>
 <!-- Header -->
 <jsp:include page="Header.jsp"></jsp:include>
@@ -55,9 +60,12 @@
                 <td>
                     <div class="col-md-2">
                         <input type="number" value="1" min="1">
-                    </div></td>
+                    </div>
+                </td>
                 <td>
-                    <a href=""><button class="btn btn-danger">Xóa</button></a>
+                    <a href="">
+                        <button class="btn btn-danger">Xóa</button>
+                    </a>
                 </td>
             </tr>
 
@@ -71,7 +79,8 @@
             <form action="">
                 <div class="col-auto">
                     <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-white border-light" id="subscribeEmail" placeholder="Nhập voucher">
+                        <input type="text" class="form-control bg-white border-light" id="subscribeEmail"
+                               placeholder="Nhập voucher">
                         <div class="input-group-text btn-success text-light">Sử dụng</div>
                     </div>
                 </div>
@@ -106,7 +115,6 @@
 <jsp:include page="Footer.jsp"></jsp:include>
 
 <!-- End Footer -->
-
 
 
 </body>

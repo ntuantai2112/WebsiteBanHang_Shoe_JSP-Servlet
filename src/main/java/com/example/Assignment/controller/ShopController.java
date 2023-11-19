@@ -23,8 +23,12 @@ public class ShopController extends HttpServlet {
 
 
         if (uri.contains("/shop")) {
-            Integer index = Integer.parseInt( request.getParameter("index"));
-            if (index == null ) {
+            String indexStr = request.getParameter("index");
+            if (indexStr == null) {
+                indexStr = "1";
+            }
+            Integer index = Integer.parseInt(indexStr);
+            if (index == null) {
                 index = 1;
             }
 

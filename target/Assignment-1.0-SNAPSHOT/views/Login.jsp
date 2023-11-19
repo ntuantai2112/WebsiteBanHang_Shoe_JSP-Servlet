@@ -1,6 +1,6 @@
 <%--<%@taglib uri="" prefix="c"%>--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +11,18 @@
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style type="text/css">
-        .bg-dark{
+        .bg-dark {
             color: black;
             background: white;
+        }
+
+        .singup {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: 0.3rem;
         }
 
     </style>
@@ -30,17 +39,12 @@
 
                             <h3 class="mb-5">Sign in</h3>
 
-                            <div class="form-group">
-<%--                                <mark class="bg-white text-black" style="background-color: white;">${loginStatus}</mark>--%>
-                                <!-- -->
-
-                            </div>
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="typeEmailX-2" name="username"
                                        value="" class="form-control form-control-lg"
-                                       placeholder="Username" />
-<%--                                <label class="text-danger">${messUserName}</label>--%>
+                                       placeholder="Username"/>
+                                <%--                                <label class="text-danger">${messUserName}</label>--%>
 
 
                             </div>
@@ -48,8 +52,8 @@
                             <div class="form-outline mb-4">
                                 <input type="password" id="typePasswordX-2" name="password"
                                        value=""
-                                       class="form-control form-control-lg" placeholder="Password" />
-<%--                                <label class="text-danger">${messPass}</label>--%>
+                                       class="form-control form-control-lg" placeholder="Password"/>
+                                <%--                                <label class="text-danger">${messPass}</label>--%>
 
                             </div>
 
@@ -63,13 +67,14 @@
                             </div>
 
 
-
+                            <%--Button Đăng nhập --%>
                             <div class="mb-2">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                             </div>
-                            <div class="">row
-                                <a href="/singup" class="text-decoration-none btn btn-success"> Sing up new Account </a>
-                            </div>
+
+                            <%--Button Đăng ký --%>
+                            <a href="/singup" class="singup text-decoration-none btn btn-success "> Sing up new
+                                Account </a>
 
                             <hr class="my-4">
 

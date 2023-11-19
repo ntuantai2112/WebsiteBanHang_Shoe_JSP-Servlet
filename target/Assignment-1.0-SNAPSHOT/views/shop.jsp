@@ -206,7 +206,7 @@
 
                         <li class="page-item ">
                             <a class="page-link <c:if test="${i == index }">active</c:if>   rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-                               href="/shop?index=${i}" tabindex="-1"  style="color: black">${i}</a>
+                               href="/shop?index=${i}" tabindex="-1" style="color: black">${i}</a>
                         </li>
 
                     </c:forEach>

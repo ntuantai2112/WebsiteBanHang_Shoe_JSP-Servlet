@@ -14,22 +14,25 @@ public class CategoryService {
 
     private DAO_Category daoCategory = new DAO_Category();
 
-    public List<Category> getAllCategory( ){
+    public List<Category> getAllCategory() {
 
 
         return daoCategory.getAllCategory();
     }
 
-    public void insert(Category category){
+    public void insert(Category category) {
 
     }
-    public void update(Integer id,Category category){
+
+    public void update(Integer id, Category category) {
 
     }
-    public void delete(Integer id){
+
+    public void delete(Integer id) {
 
     }
-    public void findByName(String keyword){
+
+    public void findByName(String keyword) {
 
     }
 

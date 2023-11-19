@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class DBConnection {
 
 
-
     private static String hostName = "localhost";
     private static String acc = "sa";
     private static String pass = "123456";
@@ -38,8 +37,6 @@ public class DBConnection {
     public static void main(String[] args) {
         System.out.println(openDbConnection());
     }
-
-
 
 
 }

@@ -12,39 +12,41 @@ import java.util.List;
 
 public class DAO_Category {
 
-    public List<Category> getAllCategory( ){
+    public List<Category> getAllCategory() {
 
         List<Category> listCategory = new ArrayList<>();
         String sqlQuery = "SELECT * FROM CATEGORY";
 
-        try{
-            Connection con  = DBConnection.openDbConnection();
+        try {
+            Connection con = DBConnection.openDbConnection();
             PreparedStatement ps = con.prepareStatement(sqlQuery);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listCategory.add(new Category(
                         rs.getInt(1),
                         rs.getString(2)
                 ));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listCategory;
     }
 
 
-
-    public void insert(Category category){
-
-    }
-    public void update(Integer id,Category category){
+    public void insert(Category category) {
 
     }
-    public void delete(Integer id){
+
+    public void update(Integer id, Category category) {
 
     }
-    public void findByName(String keyword){
+
+    public void delete(Integer id) {
+
+    }
+
+    public void findByName(String keyword) {
 
     }
 
